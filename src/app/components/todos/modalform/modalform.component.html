@@ -1,0 +1,61 @@
+<div class="container">
+  <mat-card>
+    <div class="description" *ngIf="!isEditMode">
+      <h1>{{ todo.title }}</h1>
+      <p>{{ todo.description }}</p>
+
+      <br />
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="isEditMode = !isEditMode"
+      >
+        Edit
+      </button>
+      <button mat-stroked-button color="primary" (click)="closeModal()">
+        Close
+      </button>
+    </div>
+
+    <form
+      class="form"
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      *ngIf="isEditMode"
+    >
+      <mat-form-field class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Enter the title" formControlName="title" />
+        <mat-error
+          *ngIf="form.get('title').invalid && form.get('title').touched"
+        >
+          Field must be not empty
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="full-width">
+        <mat-label>Decription</mat-label>
+        <textarea formControlName="description" matInput></textarea>
+        <mat-error
+          *ngIf="
+            form.get('description').invalid && form.get('description').touched
+          "
+        >
+          Field must be not empty
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <button
+        mat-stroked-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Save
+      </button>
+      <button mat-stroked-button color="primary" (click)="closeModal()">
+        Close
+      </button>
+    </form>
+  </mat-card>
+</div>
