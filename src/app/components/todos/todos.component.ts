@@ -78,9 +78,15 @@ export class TodosComponent implements OnInit {
       todo.id = res.name;
       this.todos.push(todo);
     });
-
-    this.form.reset();
     this.closeConfirm();
+    this.resetForm();
+    // this.form.reset();
+  }
+
+  resetForm() {
+    this.form.setValue({ title: '', description: '' });
+    this.form.markAsPristine();
+    this.form.markAsUntouched();
   }
 
   editTodo(event: any, data: Todo) {
