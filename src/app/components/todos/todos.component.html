@@ -31,3 +31,69 @@
 </mat-card>
 
 <br />
+
+<table *ngIf="todos.length">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Title</th>
+      <th>Creation date</th>
+      <th>Edit date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let data of todos; let idx = index" (click)="showModal(data)">
+      <td>{{ idx + 1 }}</td>
+      <td>{{ data.title }}</td>
+      <td>{{ data.creationDate }}</td>
+      <td>{{ data.editDate }}</td>
+
+      <td>
+        <span>
+          <button mat-button color="primary" (click)="editTodo($event, data)">
+            Edit
+          </button>
+          <button
+            mat-button
+            color="warn"
+            (click)="removeTodoConfirm($event, data.id)"
+          >
+            Delete
+          </button>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-modalform
+  *ngIf="isModalOn"
+  [todo]="modalData"
+  (close)="closeModal()"
+  [isEditMode]="editMode"
+></app-modalform>
+
+<div class="confirm-modal" *ngIf="confirmModal">
+  <mat-card *ngIf="addConfirm">
+    <p>Are you sure want to add new todo?</p>
+    <span>
+      <button mat-stroked-button color="primary" (click)="submit()">Yes</button>
+      <button mat-stroked-button color="primary" (click)="closeConfirm()">
+        Cancel
+      </button>
+    </span>
+  </mat-card>
+
+  <mat-card *ngIf="deleteConfirm">
+    <p>Are you sure want to delete ?</p>
+    <span>
+      <button mat-stroked-button color="primary" (click)="removeTodo()">
+        Yes
+      </button>
+      <button mat-stroked-button color="primary" (click)="closeConfirm()">
+        Cancel
+      </button>
+    </span>
+  </mat-card>
+</div>

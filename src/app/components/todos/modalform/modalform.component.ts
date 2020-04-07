@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-modalform',
   templateUrl: './modalform.component.html',
-  styleUrls: ['./modalform.component.scss']
+  styleUrls: ['./modalform.component.scss'],
 })
 export class ModalformComponent implements OnInit {
   // isEditMode = false;
@@ -22,7 +22,7 @@ export class ModalformComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(this.todo.title, Validators.required),
-      description: new FormControl(this.todo.description, Validators.required)
+      description: new FormControl(this.todo.description, Validators.required),
     });
   }
 
@@ -42,9 +42,7 @@ export class ModalformComponent implements OnInit {
     this.todo.description = this.form.value.description;
     this.todo.editDate = curentDate;
 
-    this.dataService.editData(this.todo).subscribe((res: any) => {
-      console.log(res);
-    });
+    this.dataService.editData(this.todo).subscribe((res: any) => {});
 
     setTimeout(() => this.closeModal(), 1000);
   }

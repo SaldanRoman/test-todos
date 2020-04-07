@@ -55,7 +55,6 @@ export class TodosComponent implements OnInit {
   }
 
   showModal(data: Todo) {
-    console.log('todos', data);
     this.modalData = data;
     this.isModalOn = true;
   }
