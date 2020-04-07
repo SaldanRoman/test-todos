@@ -1,1 +1,33 @@
-<p>todos works!</p>
+<mat-card>
+  <form class="form" [formGroup]="form" (ngSubmit)="newTodoConfirm()">
+    <mat-form-field class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Enter the title" formControlName="title" />
+      <mat-error *ngIf="form.get('title').invalid && form.get('title').touched">
+        Field must be not empty
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Decription</mat-label>
+      <textarea formControlName="description" matInput></textarea>
+      <mat-error
+        *ngIf="
+          form.get('description').invalid && form.get('description').touched
+        "
+      >
+        Field must be not empty
+      </mat-error>
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      New Todo
+    </button>
+  </form>
+</mat-card>
+
+<br />
