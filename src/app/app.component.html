@@ -8,7 +8,11 @@
         [routerLinkActiveOptions]="{ exact: true }"
         >Home</a
       >
-      <a mat-button routerLinkActive="active" [routerLink]="['/todos']"
+      <a
+        mat-button
+        routerLinkActive="active"
+        [routerLink]="['/todos']"
+        *ngIf="authService.isAuthenticated()"
         >Todos</a
       >
       <a
