@@ -11,10 +11,17 @@
       <a mat-button routerLinkActive="active" [routerLink]="['/todos']"
         >Todos</a
       >
-      <a mat-button routerLinkActive="active" [routerLink]="['/login']"
+      <a
+        mat-button
+        routerLinkActive="active"
+        [routerLink]="['/login']"
+        *ngIf="!authService.isAuthenticated()"
         >Login</a
       >
-      <a mat-button [routerLink]="['/login']" (click)="logout($event)"
+      <a
+        mat-button
+        (click)="logout($event)"
+        *ngIf="authService.isAuthenticated()"
         >Logout</a
       >
     </mat-toolbar>

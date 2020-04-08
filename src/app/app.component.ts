@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
   logout(event: Event) {
     event.preventDefault();
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+  //isAuthenticated()
 }
