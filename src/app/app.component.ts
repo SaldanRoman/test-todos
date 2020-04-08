@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   constructor(private authService: AuthService, private router: Router) {}
@@ -15,6 +15,6 @@ export class AppComponent {
   }
   login() {
     this.authService.login();
-    this.router.navigate(['/']);
+    this.router.navigate(['/todos']);
   }
 }

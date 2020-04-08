@@ -1,3 +1,33 @@
 <div class="container">
-  <h1>Plaese login</h1>
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="Ex. pat@example.com"
+        formControlName="email"
+      />
+      <mat-error>
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error>
+        Please enter 111111
+      </mat-error>
+    </mat-form-field>
+    <div class="form-buttons-wrap">
+      <button
+        mat-stroked-button
+        color="primary"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Login
+      </button>
+    </div>
+  </form>
 </div>

@@ -6,6 +6,12 @@
   .full-width {
     width: 100%;
   }
+
+  mat-form-field {
+    .mat-form-field-invalid {
+      color: grey;
+    }
+  }
 }
 
 table {
