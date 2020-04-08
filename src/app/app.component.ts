@@ -9,12 +9,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private authService: AuthService, private router: Router) {}
-  logout() {
+  logout(event: Event) {
+    event.preventDefault();
     this.authService.logout();
     this.router.navigate(['/login']);
-  }
-  login() {
-    this.authService.login();
-    this.router.navigate(['/todos']);
   }
 }

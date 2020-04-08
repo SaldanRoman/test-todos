@@ -1,8 +1,22 @@
 <div class="container">
   <nav>
     <mat-toolbar>
-      <button mat-button color="primary" (click)="logout()">Logout</button>
-      <button mat-button color="primary" (click)="login()">Login</button>
+      <a
+        mat-button
+        routerLinkActive="active"
+        [routerLink]="['/']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+      <a mat-button routerLinkActive="active" [routerLink]="['/todos']"
+        >Todos</a
+      >
+      <a mat-button routerLinkActive="active" [routerLink]="['/login']"
+        >Login</a
+      >
+      <a mat-button [routerLink]="['/login']" (click)="logout($event)"
+        >Logout</a
+      >
     </mat-toolbar>
   </nav>
   <main>

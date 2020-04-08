@@ -1,15 +1,15 @@
 <div class="container">
-  <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="submit()">
     <mat-form-field class="full-width">
       <mat-label>Email</mat-label>
       <input
         matInput
         type="email"
-        placeholder="Ex. pat@example.com"
+        placeholder="Ex. admin@mail.com"
         formControlName="email"
       />
       <mat-error>
-        Please enter a valid email address
+        Please enter a valid email address admin@mail.com
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width">
@@ -24,7 +24,7 @@
         mat-stroked-button
         color="primary"
         type="submit"
-        [disabled]="loginForm.invalid"
+        [disabled]="loginForm.invalid || submitted"
       >
         Login
       </button>
