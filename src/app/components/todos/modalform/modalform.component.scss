@@ -16,6 +16,14 @@
     mat-form-field {
       width: 100%;
     }
+    .mat-card-close {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .mat-card-buttons-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   .description {

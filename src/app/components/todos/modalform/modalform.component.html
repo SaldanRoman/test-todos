@@ -1,20 +1,37 @@
 <div class="container">
   <mat-card>
+    <div class="mat-card-close">
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Close"
+        (click)="closeModal()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
     <div class="description" *ngIf="!isEditMode">
-      <h1>{{ todo.title }}</h1>
-      <p>{{ todo.description }}</p>
+      <mat-card-title>{{ todo.title }}</mat-card-title>
+      <hr />
+      <br />
+
+      <mat-card-subtitle>Description</mat-card-subtitle>
+      <mat-card-content>{{ todo.description }}</mat-card-content>
 
       <br />
-      <button
-        mat-stroked-button
-        color="primary"
-        (click)="isEditMode = !isEditMode"
-      >
-        Edit
-      </button>
-      <button mat-stroked-button color="primary" (click)="closeModal()">
-        Close
-      </button>
+      <div class="mat-card-buttons-wrap">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="isEditMode = !isEditMode"
+        >
+          Edit
+        </button>
+        <button mat-stroked-button color="primary" (click)="closeModal()">
+          Close
+        </button>
+      </div>
     </div>
 
     <form
@@ -23,6 +40,9 @@
       (ngSubmit)="submit()"
       *ngIf="isEditMode"
     >
+      <mat-card-title>Edit Todo</mat-card-title>
+      <hr />
+      <br />
       <mat-form-field class="full-width">
         <mat-label>Title</mat-label>
         <input matInput placeholder="Enter the title" formControlName="title" />
@@ -45,17 +65,20 @@
         </mat-error>
       </mat-form-field>
       <br />
-      <button
-        mat-stroked-button
-        color="primary"
-        type="submit"
-        [disabled]="form.invalid"
-      >
-        Save
-      </button>
-      <button mat-stroked-button color="primary" (click)="closeModal()">
-        Close
-      </button>
+
+      <div class="mat-card-buttons-wrap">
+        <button
+          mat-stroked-button
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid"
+        >
+          Save
+        </button>
+        <button mat-stroked-button color="primary" (click)="closeModal()">
+          Close
+        </button>
+      </div>
     </form>
   </mat-card>
 </div>

@@ -9,6 +9,7 @@ import { CustomValidators } from 'src/app/custom.validators';
 })
 export class TodosComponent implements OnInit {
   todos: Todo[] = [];
+  newTodoModal = false;
   isModalOn = false;
   editMode = false;
   confirmModal = false;
@@ -52,6 +53,8 @@ export class TodosComponent implements OnInit {
   closeModal() {
     this.isModalOn = false;
     this.editMode = false;
+    this.newTodoModal = false;
+    this.resetForm();
   }
 
   showModal(data: Todo) {
@@ -79,8 +82,8 @@ export class TodosComponent implements OnInit {
       this.todos.push(todo);
     });
     this.closeConfirm();
+    this.closeModal();
     this.resetForm();
-    // this.form.reset();
   }
 
   resetForm() {

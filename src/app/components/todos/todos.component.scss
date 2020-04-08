@@ -1,16 +1,15 @@
-.form {
-  min-width: 150px;
-  max-width: 500px;
+header {
+  margin: 20px auto;
   width: 100%;
+  display: flex;
+  align-items: center;
 
-  .full-width {
-    width: 100%;
+  h1 {
+    margin: 0;
   }
 
-  mat-form-field {
-    .mat-form-field-invalid {
-      color: grey;
-    }
+  button {
+    margin: 0 20px;
   }
 }
 
@@ -41,6 +40,51 @@ table {
   }
 }
 
+.noTodos-message {
+  width: 100%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.newTodo-form {
+  background-color: #000000e3;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .mat-card-close {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+
+    .full-width {
+      width: 100%;
+    }
+
+    mat-form-field {
+      .mat-form-field-invalid {
+        color: grey;
+      }
+    }
+
+    .mat-card-buttons-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
 .confirm-modal {
   background-color: #000000e3;
   position: fixed;
@@ -62,6 +106,12 @@ table {
 
     p {
       padding: 25px;
+    }
+
+    .mat-card-buttons-wrap {
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
